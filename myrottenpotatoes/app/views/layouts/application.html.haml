@@ -1,0 +1,21 @@
+!!! 5
+%html
+  %head
+    <link href="https://fonts.googleapis.com/css?family=Lobster" 
+    rel="stylesheet" type="text/css">
+    
+    %title Rotten Potatoes!
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  %body
+    -# this goes just inside %body:
+    - if flash[:notice]
+      #notice.message= flash[:notice]
+    - elsif flash[:warning]
+      #warning.message= flash[:warning]
+    #main
+      %a.title{href: "https://sp17se-maldonado-xavierarmani.c9users.io/movies"}
+        %h1.title RottenPotatoes
+      = yield
